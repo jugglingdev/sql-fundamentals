@@ -66,14 +66,14 @@ VALUES (1, 'CityA', 'CityB', '2024-02-01'),
        (2, 'CityC', 'CityD', '2024-03-01');
 
 SELECT
-    FirstName, 
-    LastName, 
-    DateOfBirth, 
-    Ethnicity, 
-    Groups.GroupID, 
-    PassportID, 
-    Passports.ExpirationDate AS PassportExpirationDate, 
-    BorderPassID, 
+    FirstName,
+    LastName,
+    DateOfBirth,
+    Ethnicity,
+    Groups.GroupID AS GroupID,
+    PassportID,
+    Passports.ExpirationDate AS PassportExpirationDate,
+    BorderPassID,
     BorderPasses.ExpirationDate AS BorderPassExpirationDate
 FROM Applicants
 LEFT JOIN GROUPS ON Applicants.GroupID = Groups.GroupID
@@ -93,4 +93,5 @@ HAVING Ethnicity = 'Hazara'
 ORDER BY 
     PassportExpirationDate,
     BorderPassExpirationDate
+
 LIMIT 10;
